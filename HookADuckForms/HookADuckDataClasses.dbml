@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HookADuck" Class="HookADuckDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=CD-HP-LAPTOP\SQLEXPRESS;Initial Catalog=HookADuck;Integrated Security=True" SettingsObjectName="HookADuck.Properties.Settings" SettingsPropertyName="HookADuckConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Ducks" Member="Ducks">
+    <Type Name="Duck">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PrizeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Scanned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Prize_Duck" Member="Prize" ThisKey="PrizeID" OtherKey="ID" Type="Prize" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Prizes" Member="Prizes">
+    <Type Name="Prize">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prize" Member="Prize1" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Won" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Association Name="Prize_Duck" Member="Ducks" ThisKey="ID" OtherKey="PrizeID" Type="Duck" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CheckDuck" Method="CheckDuck">
+    <Parameter Name="Barcode" Parameter="barcode" Type="System.String" DbType="NChar(20)" />
+    <ElementType Name="CheckDuckResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="PrizeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Scanned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdatePrize" Method="UpdatePrize">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CheckPrize" Method="CheckPrize">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="CheckPrizeResult">
+      <Column Name="Won" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAllDucks" Method="GetAllDucks">
+    <ElementType Name="GetAllDucksResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="PrizeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Scanned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetAllPrizes" Method="GetAllPrizes">
+    <ElementType Name="GetAllPrizesResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Prize" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Won" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetDuck" Method="GetDuck">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetDuckResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Barcode" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+      <Column Name="PrizeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Scanned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetPrize" Method="GetPrize">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetPrizeResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Prize" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Won" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.String" DbType="NChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.UpdateDuck" Method="UpdateDuck">
+    <Parameter Name="Barcode" Parameter="barcode" Type="System.String" DbType="NChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

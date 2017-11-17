@@ -22,13 +22,15 @@ namespace HookADuck
             CheckDuckResult duck = sender as CheckDuckResult;
             if (duck == null)
             {
-                labelMessage.Content = "Invalid Barcode scanned, please try again";
+                textBlockMessage.Text = "Invalid Barcode scanned, please try again";
             }
             else if (duck.PrizeID == null)
             {
                 string name = duck.Name.TrimEnd(' ');
                 //MessageBox.Show("Congratulations, you have won a " + description + " from " + name);
-                labelMessage.Content = @"Sorry, " + name + @" says 'I don't have a prize!'";
+                textBlockMessage.Text = @"Sorry, " + name + @" says 'I don't have a prize!'";
+                var uri = new Uri(@"c:\users\chrisd.dakotais\documents\visual studio 2017\Projects\HookADuck\HookADuck\Images\sad_duck.jpg");
+                prizeImage.Source = new BitmapImage(uri);
             }
             else
             {
@@ -41,7 +43,7 @@ namespace HookADuck
                     string name = duck.Name.TrimEnd(' ');
                     string image = won[0].Image;
                     //MessageBox.Show("Congratulations, you have won a " + description + " from " + name);
-                    labelMessage.Content = "Congratulations, you have won a " + description + " from " + name;
+                    textBlockMessage.Text = "Congratulations, you have won a " + description + " from " + name;
 
                     var uri = new Uri(@"c:\users\chrisd.dakotais\documents\visual studio 2017\Projects\HookADuck\HookADuck\Images\" + image);
                     prizeImage.Source = new BitmapImage(uri);
@@ -54,7 +56,7 @@ namespace HookADuck
                     string name = duck.Name.TrimEnd(' ');
                     string image = won[0].Image;
                     //MessageBox.Show("Congratulations, you have won a " + description + " from " + name);
-                    labelMessage.Content = "Sorry, " + name + " says this prize has already been won!";
+                    textBlockMessage.Text = "Sorry, " + name + " says my " + won[0].Prize.TrimEnd(' ') + " has already been won!";
 
                     var uri = new Uri(@"c:\users\chrisd.dakotais\documents\visual studio 2017\Projects\HookADuck\HookADuck\Images\" + image);
                     prizeImage.Source = new BitmapImage(uri);

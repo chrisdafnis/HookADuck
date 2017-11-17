@@ -3,17 +3,17 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls" 
-    BorderThickness="0" 
-    GlowBrush="Black"
-    ResizeMode="CanResizeWithGrip"
-    WindowTransitionsEnabled="False"
+    BorderThickness="1" 
+    BorderBrush="{DynamicResource AccentColorBrush}"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    WindowTransitionsEnabled="true"
     Title="Hook A Duck" Height="450" Width="600">
 
     <Grid Margin="0,0,2,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="13*"/>
-            <!--<RowDefinition Height="120*"/>-->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="244.438" />

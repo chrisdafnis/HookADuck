@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/HookADuckDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="b403bc35-27ba-4d00-a943-00c8dcb3ee64" absoluteBounds="4.375, 2.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HookADuckDataClassesDataContext/Duck" />
+      <nestedChildShapes>
+        <elementListCompartment Id="67f86c39-9314-4d0c-b771-e30160ed3265" absoluteBounds="4.39, 3.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7153c4d3-c654-434a-a499-9a183dfbe4ba" absoluteBounds="2.5, 2.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HookADuckDataClassesDataContext/Prize" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b2274cb4-0aa8-4722-81a5-f1e025696f48" absoluteBounds="2.515, 2.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 2.5); (3.5 : 2.125); (5.4687495 : 2.125); (5.4687495 : 2.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HookADuckDataClassesDataContext/Prize/Prize_Duck" />
+      <nodes>
+        <classShapeMoniker Id="7153c4d3-c654-434a-a499-9a183dfbe4ba" />
+        <classShapeMoniker Id="b403bc35-27ba-4d00-a943-00c8dcb3ee64" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
